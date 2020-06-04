@@ -9,6 +9,7 @@ const base = 'http://localhost:3000/topics/';
 
 describe('routes : topics', () => {
   beforeEach(done => {
+    // eslint-disable-next-line no-unused-expressions
     this.topic;
     sequelize.sync({ force: true }).then(res => {
       Topic.create({
