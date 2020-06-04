@@ -1,14 +1,11 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('Banners', {
+    queryInterface.createTable('Rules', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-      },
-      source: {
-        type: Sequelize.STRING,
       },
       description: {
         type: Sequelize.STRING,
@@ -25,7 +22,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          // Check this for possible typo/bug issue--should the line below be "Topic"?
           model: 'Topics',
           key: 'id',
           as: 'topicId',
@@ -33,5 +29,5 @@ module.exports = {
       },
     }),
   // eslint-disable-next-line no-unused-vars
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Banners'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('Rules'),
 };

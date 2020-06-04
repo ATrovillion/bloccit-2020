@@ -1,8 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
-  const Banner = sequelize.define(
-    'Banner',
+  const Rule = sequelize.define(
+    'Rule',
     {
-      source: DataTypes.STRING,
       description: DataTypes.STRING,
       topicId: {
         type: DataTypes.INTEGER,
@@ -16,12 +15,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  Banner.associate = function(models) {
+  Rule.associate = function(models) {
     // associations can be defined here
-    Banner.belongsTo(models.Topic, {
+    Rule.belongsTo(models.Topic, {
       foreignKey: 'topicId',
       onDelete: 'CASCADE',
     });
   };
-  return Banner;
+  return Rule;
 };
