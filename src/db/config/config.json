@@ -6,7 +6,7 @@
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false,
-    "operatorsAliases": false
+    "operatorsAliases": "0"
   },
   "test": {
     "username": "postgres",
@@ -15,14 +15,15 @@
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false,
-    "operatorsAliases": false
+    "operatorsAliases": "0"
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "host": "atrovillion-bloccit-2020.herokuapp.com",
+    "dialect": "postgres",
+    "operatorsAliases": "0",
+    "use_env_variable": "DATABASE_URL"
   }
 }
