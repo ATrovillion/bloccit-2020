@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('Topics', {
+    queryInterface.createTable('Posts', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -8,12 +8,12 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       title: {
-        type: Sequelize.STRING,
         allowNull: false,
+        type: Sequelize.STRING,
       },
-      description: {
-        type: Sequelize.STRING,
+      body: {
         allowNull: false,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
@@ -23,6 +23,16 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      topicId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        allowNull: false,
+        references: {
+          model: 'Topics',
+          key: 'id',
+          as: 'topicId',
+        },
+      },
     }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Topics'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('Posts'),
 };
