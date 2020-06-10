@@ -1,6 +1,9 @@
 // eslint-disable-next-line prefer-destructuring
 const Topic = require('./models').Topic;
 
+// eslint-disable-next-line prefer-destructuring
+const Post = require('./models').Post;
+
 module.exports = {
   getAllTopics(callback) {
     return Topic.findAll()
@@ -24,7 +27,14 @@ module.exports = {
       });
   },
   getTopic(id, callback) {
-    return Topic.findByPk(id)
+    return Topic.findByPk(id, {
+      include: [
+        {
+          model: Post,
+          as: 'posts',
+        },
+      ],
+    })
       .then(topic => {
         callback(null, topic);
       })

@@ -5,6 +5,7 @@ const server = require('../../src/server');
 const sequelize = require('../../src/db/models/index').sequelize;
 // eslint-disable-next-line prefer-destructuring
 const Topic = require('../../src/db/models').Topic;
+// eslint-disable-next-line prefer-destructuring
 
 const base = 'http://localhost:3000/topics/';
 
