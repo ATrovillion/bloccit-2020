@@ -4,6 +4,9 @@ const Topic = require('./models').Topic;
 // eslint-disable-next-line prefer-destructuring
 const Post = require('./models').Post;
 
+// eslint-disable-next-line prefer-destructuring
+const Flair = require('./models').Flair;
+
 module.exports = {
   getAllTopics(callback) {
     return Topic.findAll()
@@ -32,6 +35,10 @@ module.exports = {
         {
           model: Post,
           as: 'posts',
+        },
+        {
+          model: Flair,
+          as: 'flairs',
         },
       ],
     })
